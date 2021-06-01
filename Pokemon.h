@@ -9,7 +9,13 @@
 #define POKEMON_H_
 
 struct Pokemon {
-
+	char* name;
+	int hp;
+	int attack;
+	int defense;
+	int spAttack;
+	int spDefense;
+	int speed;
 };
 
 
