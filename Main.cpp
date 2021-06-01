@@ -17,9 +17,10 @@ using namespace std;
 void initGen1();
 string parseWeather(string userInput);
 double calcLowRoll(int level, int power, int attack, int defense, double targets, double weather, double critical,
-		double random, double stab, double type, double burn, int other);
+		double stab, double type, double burn, int other);
 double calcHighRoll(int level, int power, int attack, int defense, double targets, double weather, double critical,
-		double random, double stab, double type, double burn, int other);
+		double stab, double type, double burn, int other);
+double damageCalc(string weather);
 
 Pokemon* charmander;
 Pokemon* charmeleon;
@@ -89,5 +90,13 @@ double calcHighRoll(int level, int power, int attack, int defense, double target
 			*stab*type*burn*other;
 
 	return highRoll;
+}
+
+double damageCalc(string weather){
+	double damage;
+
+
+
+	return damage;
 }
 
