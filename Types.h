@@ -17,7 +17,7 @@ struct types{
 };
 
 struct types* createType(string name){
-	struct types* type = (struct types*)malloc(sizeof(struct type));
+	struct types* type = (struct types*)malloc(sizeof(struct types));
 
 	type->name = name;
 

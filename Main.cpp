@@ -13,6 +13,7 @@
 #include"Move.h"
 #include<string>
 #include<algorithm>
+#include"Gen1Lib.h"
 
 using namespace std;
 
@@ -40,10 +41,6 @@ types* grass;
 Move* ember;
 Move* waterGun;
 Move* vineWhip;
-
-Pokemon* charmander;
-Pokemon* charmeleon;
-Pokemon* charizard;
 
 Pokemon *monArray[3];
 
@@ -73,7 +70,7 @@ void initGen1(){
 	charizard = createPokemon("Charizard", 360, 293, 280, 348, 295, 328);
 	monArray[0] = charmander;
 	monArray[1] = charmeleon;
-	monArray[3] = charizard;
+	monArray[2] = charizard;
 }
 
 void runInterface(){
