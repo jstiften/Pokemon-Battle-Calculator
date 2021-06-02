@@ -9,12 +9,22 @@
 #include<stdlib.h>
 #include<iostream>
 #include"Pokemon.h"
+#include"types.h"
 #include<string>
 #include<algorithm>
 
 using namespace std;
 
+bool moreAttacks = true;
+string attackingPokemonName;
+string defendingPokemonName;
+string weather;
+string moveName;
+
+void initTypes();
+void initMoves();
 void initGen1();
+void runInterface();
 string parseWeather(string userInput);
 double calcLowRoll(int level, int power, int attack, int defense, double targets, double weather, double critical,
 		double stab, double type, double burn, int other);
@@ -22,31 +32,57 @@ double calcHighRoll(int level, int power, int attack, int defense, double target
 		double stab, double type, double burn, int other);
 double damageCalc(string weather);
 
+types* fire;
+types* water;
+types* grass;
+
 Pokemon* charmander;
 Pokemon* charmeleon;
 Pokemon* charizard;
 
+Pokemon *monArray[3];
+
 int main(){
 
+	initTypes();
 	initGen1();
-	cout << charmander->name << endl;
-	cout << charmeleon->name << endl;
-	cout << charizard->name << endl;
 
-	string userWeather;
-	getline(cin, userWeather);
-	parseWeather(userWeather);
-	cout << userWeather << endl;
+	cout << monArray[0]->name << endl;
 
 	return 0;
+}
+
+void initTypes(){
+	fire = createType("Fire");
+	water = createType("Water");
+	grass = createType("Grass");
+}
+
+void initMoves(){
+
 }
 
 void initGen1(){
 	charmander = createPokemon("Charmander", 282, 223, 203, 240, 201, 218);
 	charmeleon = createPokemon("Charmeleon", 320, 249, 236, 284, 251, 284);
 	charizard = createPokemon("Charizard", 360, 293, 280, 348, 295, 328);
+	monArray[0] = charmander;
+	monArray[1] = charmeleon;
+	monArray[3] = charizard;
 }
 
+void runInterface(){
+	while(moreAttacks == true){
+		cout << "What pokemon is attacking?" << endl;
+		getline(cin, attackingPokemonName);
+		cout << "What pokemon is defending?" << endl;
+		getline(cin, defendingPokemonName);
+		cout << "What is the weather?" << endl;
+		getline(cin, weather);
+		cout << "What move is being used?" << endl;
+		getline(cin, moveName);
+	}
+}
 
 string parseWeather(string userInput){
 	string weather;
@@ -73,7 +109,7 @@ double calcLowRoll(int level, int power, int attack, int defense, double targets
 	int tempLevel = ((2*level)/5) + 2;
 	double attackOverDefense = attack / defense;
 
-	double lowRoll = (((tempLevel * power * attackOverDefense) / 50) + 2) * targets * weather * critical * 0.85
+	lowRoll = (((tempLevel * power * attackOverDefense) / 50) + 2) * targets * weather * critical * 0.85
 			*stab*type*burn*other;
 
 	return lowRoll;
@@ -86,14 +122,14 @@ double calcHighRoll(int level, int power, int attack, int defense, double target
 	int tempLevel = ((2*level)/5) + 2;
 	double attackOverDefense = attack / defense;
 
-	double highRoll = (((tempLevel * power * attackOverDefense) / 50) + 2) * targets * weather * critical * 1
+	highRoll = (((tempLevel * power * attackOverDefense) / 50) + 2) * targets * weather * critical * 1
 			*stab*type*burn*other;
 
 	return highRoll;
 }
 
 double damageCalc(string weather){
-	double damage;
+	double damage = 1;
 
 
 
