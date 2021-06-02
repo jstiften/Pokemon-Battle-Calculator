@@ -10,6 +10,7 @@
 #include<iostream>
 #include"Pokemon.h"
 #include"types.h"
+#include"Move.h"
 #include<string>
 #include<algorithm>
 
@@ -35,6 +36,10 @@ double damageCalc(string weather);
 types* fire;
 types* water;
 types* grass;
+
+Move* ember;
+Move* waterGun;
+Move* vineWhip;
 
 Pokemon* charmander;
 Pokemon* charmeleon;
