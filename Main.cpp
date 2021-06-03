@@ -9,7 +9,8 @@
 #include<stdlib.h>
 #include<iostream>
 #include"Pokemon.h"
-#include"types.h"
+#include"PokemonTypes.h"
+#include"TypeLib.h"
 #include"Move.h"
 #include<string>
 #include<algorithm>
@@ -34,10 +35,6 @@ double calcHighRoll(int level, int power, int attack, int defense, double target
 		double stab, double type, double burn, int other);
 double damageCalc(string weather);
 
-types* fire;
-types* water;
-types* grass;
-
 Move* ember;
 Move* waterGun;
 Move* vineWhip;
@@ -58,6 +55,9 @@ void initTypes(){
 	fire = createType("Fire");
 	water = createType("Water");
 	grass = createType("Grass");
+	flying = createType("flying");
+	poison = createType("poison");
+	noSecondType = createType("No Second Type");
 }
 
 void initMoves(){
@@ -65,15 +65,15 @@ void initMoves(){
 }
 
 void initGen1(){
-	bulbasaur = createPokemon("Bulbasaur", 45, 49, 49, 65, 65, 45);
-	ivysaur = createPokemon("Ivysaur", 60, 62, 63, 80, 80, 60);
-	venusaur = createPokemon("Venusaur", 80, 82, 83, 100, 100, 80);
-	charmander = createPokemon("Charmander", 39, 52, 43, 60, 50, 65);
-	charmeleon = createPokemon("Charmeleon", 58, 64, 58, 80, 65, 80);
-	charizard = createPokemon("Charizard", 78, 84, 78, 109, 85, 100);
-	squirtle = createPokemon("Squirtle", 44, 48, 65, 50, 64, 43);
-	wartortle = createPokemon("Wartortle", 59, 63, 80, 65, 80, 58);
-	blastoise = createPokemon("Blastoise", 79, 83, 100, 85, 105, 78);
+	bulbasaur = createPokemon("Bulbasaur", *grass, *poison, 45, 49, 49, 65, 65, 45);
+	ivysaur = createPokemon("Ivysaur", *grass, *poison, 60, 62, 63, 80, 80, 60);
+	venusaur = createPokemon("Venusaur", *grass, *poison, 80, 82, 83, 100, 100, 80);
+	charmander = createPokemon("Charmander", *fire, *noSecondType, 39, 52, 43, 60, 50, 65);
+	charmeleon = createPokemon("Charmeleon", *fire, *noSecondType, 58, 64, 58, 80, 65, 80);
+	charizard = createPokemon("Charizard", *fire, *flying, 78, 84, 78, 109, 85, 100);
+	squirtle = createPokemon("Squirtle", *water, *noSecondType, 44, 48, 65, 50, 64, 43);
+	wartortle = createPokemon("Wartortle", *water, *noSecondType, 59, 63, 80, 65, 80, 58);
+	blastoise = createPokemon("Blastoise", *water, *noSecondType, 79, 83, 100, 85, 105, 78);
 	monArray[0] = bulbasaur;
 	monArray[1] = ivysaur;
 	monArray[2] = venusaur;

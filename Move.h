@@ -9,18 +9,19 @@
 #define MOVE_H_
 
 #include<string>
-#include"Types.h"
+
+#include "PokemonTypes.h"
 
 using namespace std;
 
 struct Move{
 	string name;
-	types type;
+	PokemonType type;
 	int power;
 	int accuracy;
 };
 
-struct Move* createMove(string name, types type, int power, int accuracy){
+struct Move* createMove(string name, PokemonType type, int power, int accuracy){
 	struct Move* move = (struct Move*)malloc(sizeof(struct Move));
 
 	move->name = name;
