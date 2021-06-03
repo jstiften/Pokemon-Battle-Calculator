@@ -19,15 +19,17 @@ struct Move{
 	PokemonType type;
 	int power;
 	int accuracy;
+	bool specialOrPhysical;
 };
 
-struct Move* createMove(string name, PokemonType type, int power, int accuracy){
+struct Move* createMove(string name, PokemonType type, int power, int accuracy, bool specialOrPhysical){
 	struct Move* move = (struct Move*)malloc(sizeof(struct Move));
 
 	move->name = name;
 	move->type = type;
 	move->power = power;
 	move->accuracy = accuracy;
+	move->specialOrPhysical = specialOrPhysical;
 
 	return move;
 }

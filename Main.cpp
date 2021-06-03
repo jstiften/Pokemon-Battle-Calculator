@@ -35,10 +35,6 @@ double calcHighRoll(int level, int power, int attack, int defense, double target
 		double stab, double type, double burn, int other);
 double damageCalc(string weather);
 
-Move* ember;
-Move* waterGun;
-Move* vineWhip;
-
 Pokemon *monArray[151];
 
 int main(){
