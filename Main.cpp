@@ -42,7 +42,7 @@ Move* ember;
 Move* waterGun;
 Move* vineWhip;
 
-Pokemon *monArray[3];
+Pokemon *monArray[151];
 
 int main(){
 
@@ -65,12 +65,24 @@ void initMoves(){
 }
 
 void initGen1(){
-	charmander = createPokemon("Charmander", 282, 223, 203, 240, 201, 218);
-	charmeleon = createPokemon("Charmeleon", 320, 249, 236, 284, 251, 284);
-	charizard = createPokemon("Charizard", 360, 293, 280, 348, 295, 328);
-	monArray[0] = charmander;
-	monArray[1] = charmeleon;
-	monArray[2] = charizard;
+	bulbasaur = createPokemon("Bulbasaur", 45, 49, 49, 65, 65, 45);
+	ivysaur = createPokemon("Ivysaur", 60, 62, 63, 80, 80, 60);
+	venusaur = createPokemon("Venusaur", 80, 82, 83, 100, 100, 80);
+	charmander = createPokemon("Charmander", 39, 52, 43, 60, 50, 65);
+	charmeleon = createPokemon("Charmeleon", 58, 64, 58, 80, 65, 80);
+	charizard = createPokemon("Charizard", 78, 84, 78, 109, 85, 100);
+	squirtle = createPokemon("Squirtle", 44, 48, 65, 50, 64, 43);
+	wartortle = createPokemon("Wartortle", 59, 63, 80, 65, 80, 58);
+	blastoise = createPokemon("Blastoise", 79, 83, 100, 85, 105, 78);
+	monArray[0] = bulbasaur;
+	monArray[1] = ivysaur;
+	monArray[2] = venusaur;
+	monArray[3] = charmander;
+	monArray[4] = charmeleon;
+	monArray[5] = charizard;
+	monArray[6] = squirtle;
+	monArray[7] = wartortle;
+	monArray[8] = blastoise;
 }
 
 void runInterface(){
